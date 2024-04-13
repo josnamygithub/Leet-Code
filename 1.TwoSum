@@ -1,0 +1,41 @@
+Intuition :-
+The problem statement asks us to find two numbers in the given array that add up to a specific target value.
+We need to return the indices of these two numbers.
+The array is not necessarily sorted, and there can be multiple valid solutions.
+Approach :-
+We can use a hash map to store the elements of the array along with their indices.
+While iterating through the array, for each element nums[i], we check if the complement (target - nums[i]) exists in the map.
+If it does, we found a valid pair, and we return the indices [i, map.get(target - nums[i])].
+Otherwise, we add nums[i] to the map.
+This approach ensures that we find the solution in a single pass through the array.
+
+Complexity
+Time complexity:
+The second approach, which you’ve implemented, uses a hash map. It iterates through the nums array once to build the map (which takes O(n) time),
+Space complexity:
+O(n). for Hash Map Approch
+Code
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        // for (int i =0;i <nums.length-1 ;i++){
+        //     for(int j =i +1 ;j< nums.length ;j++){
+        //         if(nums[i]+nums[j]==target){
+        //             return new int [] {i ,j};
+        //         }
+        //     }
+        // }
+        // return new int[]{};
+        
+
+        Map<Integer, Integer> nummap =new HashMap<>();
+        for(int i = 0; i < nums.length ;i++){
+            nummap.put(nums[i] , i);
+        }
+
+        for (int i =0 ;i<nums.length ;i++){
+            if(nummap.containsKey(target-nums[i]) && nummap.get(target-nums[i])!= i){
+                return new int[] {i, nummap.get(target-nums[i])};
+            }
+        }
+        return new int[]{};
+    }
