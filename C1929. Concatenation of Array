@@ -1,0 +1,33 @@
+Approach
+____________
+Calculate the length of the original array (nums).
+Allocate memory for a new array (ans) with double the size (2 * n).
+Use System.arraycopy to copy elements from the original array (nums) to the new array (ans) twice:
+First copy (n elements) starts at index 0 of nums and goes to index 0 of ans (filling the first half).
+Second copy (n elements) also starts at index 0 of nums but goes to index n of ans (filling the second half).
+Return the new concatenated array (ans).
+
+Time Complexity:
+___________________
+
+O(n). The dominant operation is copying elements using System.arraycopy. Each call copies n elements, and there are two calls. Since these calls are independent, we simply add their time complexities (ignoring constant factors).
+
+Space Complexity:
+______________________
+O(n). We create a new array (ans) with a size twice that of the original array (nums). This new array allocation dominates the space used by the algorithm.
+_______________________________________________________________________________________________________________________________________________________________________________________________________________
+
+class Solution {
+    public int[] getConcatenation(int[] nums) {
+        int n = nums.length;
+        int[] ans = new int[2 * n];  // Allocate memory for a new array twice the size
+
+        // Copy first half of nums to ans
+        System.arraycopy(nums, 0, ans, 0, n);
+
+        // Copy second half of nums to ans (starting from n in the destination)
+        System.arraycopy(nums, 0, ans, n, n);
+
+        return ans;
+    }
+}
