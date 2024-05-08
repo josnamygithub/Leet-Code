@@ -11,10 +11,12 @@ class Solution {
 
 // class Solution {
 //     public int mySqrt(int x) {
-//     double guess = x / 2.0 ;
-    
-//         guess = (guess + x / guess ) / 2.0 ;
+//         double guess = x / 2.0;
         
-//         return (int) guess;
-//     } 
+//         while (Math.abs(guess * guess - x) > 0.0001) {
+//             guess = (guess + x / guess) / 2.0;
+//         }
+        
+//         return (int) Math.round(guess);
+//     }
 // }
