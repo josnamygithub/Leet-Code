@@ -19,9 +19,6 @@ class Solution {
             }
         
              result = (sum2 -sum1 )/nums1.length;
-        
-            
-            
         return result ;
     }
 }
