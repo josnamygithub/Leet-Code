@@ -7,7 +7,6 @@
 class Solution {
     public int addedInteger(int[] nums1, int[] nums2) {
         int sum1=0  ,sum2  =0 ,result =1;
-        
 
         for (int i =0 ;i < nums1.length ;i++){
              sum1 +=nums1[i] ;
@@ -17,8 +16,17 @@ class Solution {
              sum2 +=nums2[i] ;
             
             }
-        
              result = (sum2 -sum1 )/nums1.length;
         return result ;
     }
 }
+
+//import java.util.stream.IntStream;
+
+// class Solution {
+//     public int addedInteger(int[] nums1, int[] nums2) {
+//         int sum1 = IntStream.of(nums1).sum();
+//         int sum2 = IntStream.of(nums2).sum();
+//         return (sum2 - sum1) / nums1.length;
+//     }
+// }
