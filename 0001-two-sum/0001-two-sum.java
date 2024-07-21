@@ -1,25 +1,19 @@
+//1 )  target is must be greater compare than numbers in array
+// 2)   if  num[0] + num[1] =target  return array with indices . 
+// 3)  if another way    9 -2 =7 , 9- 7 = 2 ,  9- 11 =3 , 9-15 = 6
 class Solution {
     public int[] twoSum(int[] nums, int target) {
-        // for (int i =0;i <nums.length-1 ;i++){
-        //     for(int j =i +1 ;j< nums.length ;j++){
-        //         if(nums[i]+nums[j]==target){
-        //             return new int [] {i ,j};
-        //         }
-        //     }
-        // }
-        // return new int[]{};
-        
-
-        Map<Integer, Integer> nummap =new HashMap<>();
-        for(int i = 0; i < nums.length ;i++){
-            nummap.put(nums[i] , i);
-        }
-
-        for (int i =0 ;i<nums.length ;i++){
-            if(nummap.containsKey(target-nums[i]) && nummap.get(target-nums[i])!= i){
-                return new int[] {i, nummap.get(target-nums[i])};
+     
+        for (int i =0 ; i< nums.length;i++){
+            for(int j =i+1 ;j < nums.length ;j++){
+                if(nums[i] + nums[j] ==target){
+                    
+                    return new int[] {i,j};
+                }
+                     
             }
         }
-        return new int[]{};
+        
+       return new int[] {} ;
     }
 }
